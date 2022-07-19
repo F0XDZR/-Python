@@ -14,7 +14,16 @@ result2 = natural_numbers.copy()
 len_list = len(result2)
 
 if user_num in result2:
-    result2.insert(result2.index(user_num), user_num)
+    for i in range(len(result2)):
+        if user_num != result2[i]:
+            continue
+        else:
+            if i == len(result2) - 1:
+                result2.append(user_num)
+                break
+            elif user_num != result2[i + 1]:
+                result2.insert(i + 1, user_num)
+                break
 else:
     for i in range(len(result2)):
         if user_num > result2[i]:
@@ -22,5 +31,4 @@ else:
             break
         elif i == len(result2) - 1:
             result2.append(user_num)
-
 print(f'{result2} - вариант №2')
